@@ -1,0 +1,136 @@
+<div class = "maincont">
+
+
+<mat-card>
+  <mat-tab-group mat-align-tabs="start">
+    <mat-tab label="Sign In">
+  <div>
+
+    <mat-slide-toggle (change)="toggleEditing()" [checked]="editing">
+      Enable editing
+    </mat-slide-toggle>
+  </div>
+  <div [ngClass]="{'disabled':!editing}">
+    <form [formGroup]="form">
+      <mat-form-field class="display-column" >
+        <mat-label>Login</mat-label>
+        <input matInput formControlName="login" type="text">
+        <mat-error>
+          {{'Insert valid login'}}
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="display-column" >
+        <mat-label>Email</mat-label>
+        <input matInput placeholder="pat@example.com" formControlName="email" id = "email" type="email">
+        <mat-error>
+          {{'Insert valid email'}}
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="display-column">
+        <mat-label>Enter your password</mat-label>
+        <input matInput formControlName="password" [type]="hide ? 'password' : 'text'">
+        <mat-error>
+          {{"Invalid pass"}}
+        </mat-error>
+        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+      </mat-form-field>
+
+
+      <mat-form-field class="display-column">
+        <mat-label>Confirm password</mat-label>
+        <input matInput formControlName="conpassword" type="password" >
+        <mat-error>
+          {{"Password not equal"}}
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="display-column">
+        <mat-label>Age</mat-label>
+        <input matInput formControlName="age" type="number">
+        <mat-error>
+          {{'Insert valid age'}}
+        </mat-error>
+      </mat-form-field>
+
+
+
+
+      <section class="example-section">
+        <mat-checkbox formControlName="cb" class="example-margin" required>Accept rules</mat-checkbox>
+        <button mat-button (click)="openDialog()">Click (Rules)</button>
+      </section>
+
+    </form>
+    <div class="control-buttons">
+      <button  mat-stroked-button color="primary" (click)="save()" [disabled]="form.invalid" >
+        Save
+      </button>
+
+      <button  mat-stroked-button color="warn" (click)="cancel()">
+        Cancel
+      </button>
+    </div>
+  </div>
+  </mat-tab>
+
+
+
+
+
+        <mat-tab label="Log In">
+        <div>
+          <mat-slide-toggle (change)="toggleEditing()" [checked]="editing">
+            Enable editing
+          </mat-slide-toggle>
+        </div>
+        <div [ngClass]="{'disabled':!editing}">
+          <form [formGroup]="form">
+            <mat-form-field class="display-column" >
+              <mat-label>Login</mat-label>
+              <input matInput formControlName="login" type="text">
+              <mat-error>
+                {{'Insert valid login'}}
+              </mat-error>
+            </mat-form-field>
+
+
+
+            <mat-form-field class="display-column">
+              <mat-label>Enter your password</mat-label>
+              <input matInput formControlName="password" [type]="hide ? 'password' : 'text'">
+              <mat-error>
+                {{'Invalid pass'}}
+              </mat-error>
+              <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+              </button>
+            </mat-form-field>
+
+
+
+
+
+
+            <section class="example-section">
+              <mat-checkbox class="example-margin">Remember password</mat-checkbox>
+
+            </section>
+
+          </form>
+          <div class="control-buttons">
+            <button  mat-stroked-button color="primary"  >
+              Log In
+            </button>
+
+          </div>
+        </div>
+    </mat-tab>
+        </mat-tab-group>
+      </mat-card>
+
+
+</div>
