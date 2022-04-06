@@ -21,12 +21,21 @@ import {MatIconModule} from "@angular/material/icon";
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatDatepickerModule} from "@angular/material/datepicker";
 import {HttpClient, HttpClientModule} from "@angular/common/http";
+import { MainMenuComponent } from './main-component/main-menu/main-menu/main-menu.component';
+import {RouterModule, Routes} from "@angular/router";
 
+const appRoutes: Routes =[
+  { path: '', component: MainMenuComponent},
+  { path: 'registration', component: MainPageComponent },
+
+
+];
 
 @NgModule({
   declarations: [
     AppComponent,
-    MainPageComponent
+    MainPageComponent,
+    MainMenuComponent
   ],
   imports: [
     MatTabsModule,
@@ -43,7 +52,9 @@ import {HttpClient, HttpClientModule} from "@angular/common/http";
     MatDialogModule,
     MatIconModule,
     MatDatepickerModule,
-    HttpClientModule
+    HttpClientModule,
+    RouterModule.forRoot(appRoutes),
+    BrowserModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
@@ -53,5 +64,12 @@ export class AppModule {
   constructor(private injector: Injector) {
     const mainPage = createCustomElement(MainPageComponent, {injector: this.injector});
     customElements.define("main-page", mainPage)
+    const mainMenu = createCustomElement(MainMenuComponent, {injector: this.injector});
+    customElements.define("main-menu", mainMenu)
+
   }
+
+
+
+
 }

@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import {MainPageDTO} from "../../@core/dtos/MainPageDTO";
-import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {AbstractControl, FormBuilder, FormGroup, ValidationErrors, Validators} from "@angular/forms";
 import {MainPageService} from "../../@core/main-page.service";
 import {MAT_DIALOG_DATA, MatDialog} from "@angular/material/dialog";
 import {invalid} from "@angular/compiler/src/render3/view/util";
+import {map, Observable} from "rxjs";
 
 
 @Component({
@@ -45,6 +46,11 @@ export class MainPageComponent implements OnInit {
       email: [[data && data.email ? data.email : ""], [Validators.required, Validators.email, Validators.maxLength(40)]]
        },{validator: this.checkIfMatchingPasswords('password', 'conpassword')})
   }
+
+
+
+
+
   checkIfMatchingPasswords(passwordKey: string, passwordConfirmationKey: string) {
     return (group: FormGroup) => {
       let passwordInput = group.controls[passwordKey],
