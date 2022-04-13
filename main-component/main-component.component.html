@@ -22,7 +22,7 @@
 
       <mat-form-field class="display-column" >
         <mat-label>Email</mat-label>
-        <input matInput placeholder="pat@example.com" formControlName="email" id = "email" type="email">
+        <input matInput placeholder="pat@example.com" formControlName="email" id = "email" type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$">
         <mat-error>
           {{'Insert valid email'}}
         </mat-error>
@@ -47,16 +47,6 @@
           {{"Password not equal"}}
         </mat-error>
       </mat-form-field>
-
-      <mat-form-field class="display-column">
-        <mat-label>Age</mat-label>
-        <input matInput formControlName="age" type="number">
-        <mat-error>
-          {{'Insert valid age'}}
-        </mat-error>
-      </mat-form-field>
-
-
 
 
       <section class="example-section">

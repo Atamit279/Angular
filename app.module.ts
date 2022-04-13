@@ -25,7 +25,7 @@ import { MainMenuComponent } from './main-component/main-menu/main-menu/main-men
 import {RouterModule, Routes} from "@angular/router";
 
 const appRoutes: Routes =[
-  { path: '', component: MainMenuComponent},
+  { path: 'menu', component: MainMenuComponent},
   { path: 'registration', component: MainPageComponent },
 
 

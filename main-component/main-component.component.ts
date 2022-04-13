@@ -42,7 +42,6 @@ export class MainPageComponent implements OnInit {
       login: [[data && data.login ? data.login : ''], [Validators.required, Validators.minLength(5)]],
       password: [[data && data.password ? data.password : ''], [Validators.required, Validators.minLength(5)]],
       conpassword: [[data && data.conpassword ? data.conpassword : ''], [Validators.required, Validators.minLength(5)]],
-      age: [[data && data.age ? data.age : 0], [Validators.required]],
       email: [[data && data.email ? data.email : ""], [Validators.required, Validators.email, Validators.maxLength(40)]]
        },{validator: this.checkIfMatchingPasswords('password', 'conpassword')})
   }
@@ -81,12 +80,14 @@ export class MainPageComponent implements OnInit {
     this.editing = false;
     this.mainPage.login = this.form.get('login')?.value;
     this.mainPage.password = this.form.get('password')?.value;
-    this.mainPage.age = this.form.get('age')?.value[0];
     this.mainPage.conpassword = this.form.get('conpassword')?.value;
     this.mainPage.email = this.form.get('email')?.value;
     this.mainPageService.save(this.mainPage).subscribe(data => {
       console.log(data);
+    }, error => {
+      alert("This login already exists");
     });
+
 
   }
 
@@ -94,7 +95,6 @@ export class MainPageComponent implements OnInit {
     this.editing = false;
     this.form.get('login')?.setValue(this.mainPage.login);
     this.form.get('password')?.setValue(this.mainPage.password);
-    this.form.get('age')?.setValue(this.mainPage.age);
     this.form.get('conpassword')?.setValue(this.mainPage.conpassword);
     this.form.get('email')?.setValue(this.mainPage.email);
   }
