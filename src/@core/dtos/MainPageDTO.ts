@@ -4,5 +4,5 @@ export class MainPageDTO{
   password: string = "";
   conpassword: string = "";
   email:  string = "";
-  age: number = 0;
+
 }
