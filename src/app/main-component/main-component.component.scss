@@ -1,0 +1,47 @@
+control-buttons {
+  display: flex;
+  align-items: center;
+
+  button {
+    margin-left: 5px;
+  }
+}
+
+.full-width {
+  width: 25%;
+}
+
+.display-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.maincont {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgb(160,71,255);
+  background: linear-gradient(90deg, rgba(160,71,255,1) 0%, rgba(123,87,205,1) 43%, rgba(167,81,172,1) 100%);
+  height: 100%;
+
+}
+
+.mat-tab-group {
+  margin-bottom: 48px;
+
+}
+
+mat-card {
+  background-color: #EEDDFF;
+  border: 6px solid #7922CC;
+  border-radius: 25px;
+  padding: 50px;
+  margin: 10px;
+}
+
+.disabled
+{
+  pointer-events: none;
+  /* for "disabled" effect */
+  opacity: 0.5;
+}
